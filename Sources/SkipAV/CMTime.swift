@@ -12,6 +12,7 @@ public typealias CMTimeEpoch = Int64
 /// Time as a rational value, with a time value as the numerator and timescale as the denominator. The structure can represent a specific numeric time in the media timeline, and can also represent nonnumeric values like invalid and indefinite times or positive and negative infinity.
 public struct CMTime : Hashable { // TODO: Comparable
     public static let zero = CMTime(seconds: 0.0, preferredTimescale: 0)
+    public static let positiveInfinity = CMTime(value: 0, timescale: 0, flags: 4, epoch: 0)
 
     public var value: CMTimeValue = CMTimeValue(0)
     public var timescale: CMTimeScale = CMTimeScale(0)

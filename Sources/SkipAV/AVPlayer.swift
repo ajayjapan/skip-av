@@ -135,7 +135,11 @@ public class AVPlayer {
     }
 
     public func seek(to time: CMTime) {
-        mediaPlayer.seekTo(time.value)
+        if time.flags == 4 { // positiveInfinity
+            mediaPlayer.seekToDefaultPosition()
+        } else {
+            mediaPlayer.seekTo(time.value)
+        }
     }
 
     public func replaceCurrentItem(with item: AVPlayerItem?) {
