@@ -230,6 +230,7 @@ public class AVPlayerLooper {
     public init(player: AVQueuePlayer, templateItem: AVPlayerItem) {
         self.player = player
         self.templateItem = templateItem
+        player.insert(templateItem, after: nil)
         self.player.looping = true
     }
 
@@ -238,10 +239,13 @@ public class AVPlayerLooper {
         self.player.looping = false
     }
 
+    public func disableLooping() {
+        self.player.looping = false
+    }
+
     // TODO
     //open var status: AVPlayerLooper.Status { get }
     //open var error: (any Error)? { get }
-    //open func disableLooping()
     //open var loopCount: Int { get }
     //open var loopingPlayerItems: [AVPlayerItem] { get }
 
